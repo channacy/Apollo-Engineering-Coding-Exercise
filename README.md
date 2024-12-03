@@ -20,15 +20,21 @@ To run the app for the first time:
 To start development server:
 - `flask run`
 
+To run the Pytest tests:
+- `cd tests`
+- `pytest`
+
 To test the API via command line with cURL:
 - `curl http://127.0.0.1:5000/vehicle`
 
 To add a new vehicle:
 - `curl -X POST http://127.0.0.1:5000/vehicle \-H "Content-Type: application/json" \-d '{"vin": 123456", description": "Sedan with sunroof", "manufacturer":"Tesla","horse_power": 180, "model_name": "Honda Civic", "model_year": 2022, "purchase_price": 25000.50, "fuel_type": "Gasoline"}'`
 
-- To delete a vehicle:
+To delete a vehicle:
 `curl -X DELETE http://127.0.0.1:5000/vehicle/123456`
 
-- To update a vehicle:
+To update a vehicle:
 `curl -X PUT -H "Content-Type: application/json" -d '{"description":"updated!"}' http://127.0.0.1:5000/vehicle/123456`
 
+- Resources
+[Test Your Python Project](https://openclassrooms.com/en/courses/7747411-test-your-python-project/7894396-create-tests-for-the-flask-framework-using-pytest-flask)

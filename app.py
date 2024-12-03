@@ -9,8 +9,7 @@ def create_app(app_config=None):
 
     if app_config:
         app.config.update(app_config)
-    else:
-        app.config['SQLALCHEMY_DATABASE_URI'] =\
+    app.config['SQLALCHEMY_DATABASE_URI'] =\
             'sqlite:///' + os.path.join(basedir, 'database.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
