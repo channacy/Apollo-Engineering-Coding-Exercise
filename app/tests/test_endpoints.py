@@ -4,7 +4,7 @@ import os
 
 # Add the root directory of your project to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from app.app import create_app
+from app import create_app
 
 @pytest.fixture
 def client():
