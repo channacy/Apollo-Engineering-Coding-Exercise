@@ -1,5 +1,5 @@
 
-# Apollo Engineering Coding Exercise - Vehicle CRUD API
+# Apollo Engineering Coding Exercise - 🚗 Vehicle CRUD API
 
 A CRUD Representational State Transfer (REST) API designed to create, read, update, delete vehicle information. 
 
@@ -12,7 +12,7 @@ Tools: Flask, SQLAlchemy, SQLite, PyTest, cURL
 1. Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/channacy/Apollo-Engineering-Coding-Exercise.git
 ```
 
 2. Create Virtual Environment
