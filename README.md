@@ -99,7 +99,13 @@ cd app/tests
 pytest
 ```
 
+## Example Usage
+<img width="853" alt="Screenshot 2024-12-04 at 12 30 16 PM" src="https://github.com/user-attachments/assets/61888397-22d5-46af-8987-774ac6dfa273">
+<img width="1030" alt="Screenshot 2024-12-04 at 12 58 41 PM" src="https://github.com/user-attachments/assets/d86908d3-0d94-4656-90c7-0ce82d7609ea">
+<img width="1045" alt="Screenshot 2024-12-04 at 12 30 35 PM" src="https://github.com/user-attachments/assets/ba6aaafa-f7a4-415e-8d17-02ca45a0f61b">
+<img width="1023" alt="Screenshot 2024-12-04 at 12 56 22 PM" src="https://github.com/user-attachments/assets/53d797d5-21c5-4f22-bb81-c367bcca9783">
+
 ## Resources
 
 [Test Your Python Project](https://openclassrooms.com/en/courses/7747411-test-your-python-project/7894396-create-tests-for-the-flask-framework-using-pytest-flask)
-
+[Testing a Flask framework with Pytest](https://circleci.com/blog/testing-flask-framework-with-pytest/)
