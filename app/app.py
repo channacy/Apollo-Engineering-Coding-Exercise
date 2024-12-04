@@ -25,9 +25,13 @@ def create_app(app_config=None):
             vehicle_list = []
             for vehicle in vehicles:
                 vehicle_list.append(vehicle.to_dict())
-            return jsonify(vehicle_list), 200
+            response = jsonify(vehicle_list)
+            response.status_code = 200
+            return response
         except Exception as e:
-            return jsonify({"Error": str(e)}), 400
+            response = jsonify({"Error": str(e)})
+            response.status_code = 400
+            return response
             # return jsonify({"Error": "400 Bad Request"}), 400
 
     @app.route('/vehicle/<int:vin>', methods=["GET"])
@@ -38,13 +42,18 @@ def create_app(app_config=None):
         try:
             vehicle = Vehicle.query.get_or_404(vin)
             if vehicle:
-                return jsonify(vehicle.to_dict()), 200
+                response = jsonify(vehicle.to_dict())
+                response.status_code = 200
+                return response
             else:
-                return jsonify({"422 Unprocessable Entity": "Cannot find vehicle with specified vin."}), 422
+                response = jsonify({"422 Unprocessable Entity": "Cannot find vehicle with specified vin."})
+                response.status_code = 422
+                return response
         except Exception as e:
-            return jsonify({"Error": str(e)}), 400
+            response = jsonify({"Error": str(e)})
+            response.status_code = 400
+            return response
             # return jsonify({"Error": "400 Bad Request"}), 400
-
 
     @app.route('/vehicle/<int:vin>', methods=["PUT"])
     def update_vehicle(vin):
@@ -55,7 +64,9 @@ def create_app(app_config=None):
             data = request.get_json()
             vehicle = Vehicle.query.get(vin)
             if not vehicle:
-                return jsonify({"422 Unprocessable Entity": f"Cannot find vehicle with specified vin {vin}"}), 422
+                response = jsonify({"422 Unprocessable Entity": f"Cannot find vehicle with specified vin {vin}"})
+                response.status_code = 422
+                return response
             if 'manufacturer' in data:
                 vehicle.manufacturer = data.get('manufacturer')
             if 'description' in data:
@@ -71,9 +82,13 @@ def create_app(app_config=None):
             if 'fuel_type' in data:
                 vehicle.fuel_type = data.get('fuel_type')
             db.session.commit()
-            return jsonify(vehicle.to_dict()), 200
+            response = jsonify(vehicle.to_dict())
+            response.status_code = 200
+            return response
         except Exception as e:
-            return jsonify({"Error": str(e)}), 400
+            response = jsonify({"Error": str(e)})
+            response.status_code = 400
+            return response
             # return jsonify({"Error": "400 Bad Request"}), 400
 
     @app.route('/vehicle/<int:vin>', methods=["DELETE"])
@@ -90,7 +105,9 @@ def create_app(app_config=None):
             db.session.commit()
             return jsonify(vehicle.to_dict()), 204
         except Exception as e:
-            return jsonify({"Error": str(e)}), 400
+            response = jsonify({"Error": str(e)})
+            response.status_code = 400
+            return response
             # return jsonify({"Error": "400 Bad Request"}), 400
 
     @app.route('/vehicle', methods=["POST"])
@@ -109,14 +126,18 @@ def create_app(app_config=None):
             purchase_price = data.get('purchase_price')
             fuel_type = data.get('fuel_type')
             if not desc or not horse_power or not model_name or not model_year or not purchase_price or not fuel_type:
-                return jsonify({"Error 422": "All fields: vin, manufacturer, description, horse_power, model_name, model_year, purchase_price, fuel_type are required to create new vehicle."}), 422
+                response = jsonify({"Error 422": "All fields: vin, manufacturer, description, horse_power, model_name, model_year, purchase_price, fuel_type are required to create new vehicle."})
+                response.status_code = 422
+                return response
             vehicle = Vehicle(vin=vin, manufacturer=manufacturer, description=desc, horse_power=horse_power,
                               model_name=model_name, model_year=model_year, purchase_price=purchase_price, fuel_type=fuel_type)
             db.session.add(vehicle)
             db.session.commit()
             return jsonify(vehicle.to_dict()), 201
         except Exception as e:
-            return jsonify({"Error": str(e)}), 400
+            response = jsonify({"Error": str(e)})
+            response.status_code = 400
+            return response
             # return jsonify({"Error": "400 Bad Request"}), 400
 
     return app
