@@ -52,7 +52,7 @@ python app.py
 #### GET
 
 ```http
-curl http://127.0.0.1:5000/vehicle
+curl http://127.0.0.1:5000/vehicle/<optional-id-for-one-vehicle>
 ```
 
 | Method | Response Status | Description                |
