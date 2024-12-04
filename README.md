@@ -5,7 +5,7 @@ A CRUD Representational State Transfer (REST) API designed to create, read, upda
 
 Each vehicle has a unique vin number (also serving as primary key), manufacturer name, description, horse power, model name, model year, purchase price, fuel type, and a created_at datetime.
 
-
+Tools: Flask, SQLAlchemy, SQLite, PyTest, cURL
 
 ## Installation
 
@@ -62,7 +62,7 @@ curl http://127.0.0.1:5000/vehicle
 #### POST
 
 ```http
-  curl -X POST http://127.0.0.1:5000/vehicle \-H "Content-Type: application/json" \-d '{"vin": 123456, "description": "Sedan with sunroof", "manufacturer":"Tesla","horse_power": 180, "model_name": "Honda Civic", "model_year": 2022, "purchase_price": 25000.50, "fuel_type": "Gasoline"}
+  curl -X POST http://127.0.0.1:5000/vehicle \-H "Content-Type: application/json" \-d '{"vin": 123456, "description": "Sedan with sunroof", "manufacturer":"Tesla","horse_power": 180, "model_name": "Honda Civic", "model_year": 2022, "purchase_price": 25000.50, "fuel_type": "Gasoline"}'
 ```
 
 | Method | Response Status     | Description                       |
@@ -98,7 +98,6 @@ To run tests, run the following command
 cd app/tests
 pytest
 ```
-
 
 ## Resources
 
